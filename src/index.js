@@ -1,17 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { Topbar } from "./components/topBar"
+import { App3 } from "./home"
+import { App4 } from "./components/aboutUs"
+import { Footer } from './components/footer';
+import CheckoutPage from "./components/CheckoutPage"
+// import Product from './components/Product';
+import Navbar from './components/NavBar';
+import Products from './components/Products';
+import Movements from './components/Movements'
+// import { Check } from '@material-ui/icons';
+
+import './styles.css'
+import './bootstrap.min.css'
+import './carousel.css'
+
+//Switch de React Router para habilitar navegacion por las paginas
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
+
+//StateProvider encargado de permitir la intercomunicacion entre componentes 
+import { StateProvider } from './StateProvider';
+import reducer, { initialState } from './reducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+
+    <BrowserRouter>
+      <StateProvider initialState={initialState} reducer={reducer}>
+        <Navbar />
+        
+        <Routes>
+          <Route path='/checkout-page' element={<CheckoutPage />} />
+          <Route path='/products' element={<div className='container-xxl'><Products /></div>} />
+          <Route path='/movements' element={<Movements />} />
+          <Route path='/' element={[<App3 />,<App4 />]} />
+        </Routes>
+      </StateProvider>
+      <Topbar />
+      <Footer />
+    </BrowserRouter>
+
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
