@@ -33,16 +33,15 @@ root.render(
     <BrowserRouter>
       <StateProvider initialState={initialState} reducer={reducer}>
         <Navbar />
-        
+        <Topbar />
         <Routes>
           <Route path='/checkout-page' element={<CheckoutPage />} />
           <Route path='/products' element={<div className='container-xxl'><Products /></div>} />
-          <Route path='/movements' element={<Movements />} />
+          <Route path='/movements' element={<div className='container-xxl'><Movements /></div>} />
           <Route path='/' element={[<App3 />,<App4 />]} />
         </Routes>
       </StateProvider>
-      <Topbar />
-      <Footer />
+      <footer><Footer /></footer>
     </BrowserRouter>
 
   </React.StrictMode>
