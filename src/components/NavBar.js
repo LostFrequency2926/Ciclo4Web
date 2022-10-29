@@ -10,26 +10,41 @@ import { ShoppingCart } from '@material-ui/icons';
 import { Badge} from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import { makeStyles } from '@material-ui/core';
-
+import { createTheme, ThemeProvider  } from '@mui/material/styles';
 //Consumir el state value general
 import { useStateValue } from '../StateProvider';
+
+const theme = createTheme({
+    palette: {
+      neutral: {
+        main: '#FF9900',
+        contrastText: '#fff',
+      },
+    },
+  });
+
+
 
 const useStyles = makeStyles(({ theme }) => ({
      grow: {
          color: "#FFFFFF",
-     }
+     },
+     grow2: {
+        color: "#FF9900",
+    }
  }))
 
 
 export default function NavBar() {
-
+    
     const classes = useStyles();
     const [{basket}] = useStateValue();
 
     return (
+        <ThemeProvider theme={theme}>
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="relative">
-                <Toolbar>
+            <AppBar color="neutral" variant="contained" position="relative">
+                <Toolbar >
                     <Link to="/">
                         <IconButton>
                             <img height={"60rem"} src={logo} alt="icon" />
@@ -46,7 +61,10 @@ export default function NavBar() {
                     </Link>
                     <Link to='movements' className={classes.grow}>
                         <Button color="inherit">Movimientos</Button>
-                    </Link>                    
+                    </Link>       
+                    <Link to='ingress_products' className={classes.grow}>
+                        <Button color="inherit">Ing. Productos</Button>
+                    </Link>              
                     <Button color="inherit">
                         <strong>Login</strong>
                     </Button>
@@ -60,5 +78,6 @@ export default function NavBar() {
                 </Toolbar>
             </AppBar>
         </Box>
+        </ThemeProvider>
     );
 }

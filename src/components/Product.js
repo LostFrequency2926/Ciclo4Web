@@ -67,7 +67,7 @@ export default function Product({product: {id, name, productType, price, amount,
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: "#b73030" }} aria-label="recipe">
+          <Avatar sx={{ bgcolor: "#FF9900" }} aria-label="recipe">
             HS
           </Avatar>
         }

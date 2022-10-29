@@ -17,7 +17,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(({ theme }) => ({
   boxcustom: {
-
+    height: "100%",
+    maxHeight: "100%"
   }
 }))
 
@@ -26,7 +27,7 @@ export default function Movements() {
   const classes = useStyles();
 
   return (
-    <Box className={classes.boxcustom} sx={{ flexGrow: 2 }}>
+    <Box marginTop={"2rem"} marginBottom={"4rem"} className={classes.boxcustom} sx={{ flexGrow: 2 }}>
       <Grid container spacing={2}>
         {
           MovementsData.map(movement => (
