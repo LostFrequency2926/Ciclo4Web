@@ -4,7 +4,7 @@ import * as React from 'react';
 //Componente
 import { Fragment } from "react";
 
-export const App3 = () => {
+export const Home = () => {
 
     return (
 

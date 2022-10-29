@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 // import { Topbar } from "./components/topBar"
-import { App3 } from "./home"
+import { Home } from "./components/home"
 import { App4 } from "./components/aboutUs"
 import Footer from './components/footer';
 import CheckoutPage from "./components/CheckoutPage"
@@ -41,7 +41,7 @@ root.render(
           <Route path='/movements' element={<Movements />} />
           {/*<Route path='/ingress_products' element={<IngresarProductos />} />*/}
           <Route path='/ingress_products' element={<NewProducts />} />
-          <Route path='/' element={[<App3 />,<App4 />]} />
+          <Route path='/' element={[<Home />,<App4 />]} />
           
         </Routes>
       </StateProvider>
