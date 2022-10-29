@@ -25,6 +25,7 @@ import {
 //StateProvider encargado de permitir la intercomunicacion entre componentes 
 import { StateProvider } from './StateProvider';
 import reducer, { initialState } from './reducer';
+import IngresarProductos from './components/IngresarProductos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -37,8 +38,7 @@ root.render(
         <Routes>
           <Route path='/checkout-page' element={<CheckoutPage />} />
           <Route path='/products' element={<div className='container-xxl'><Products /></div>} />
-          <Route path='/movements' element={<div className='container-xxl'><Movements /></div>} />
-          <Route path='/ingress_products' element={<div>< IngresarProductos centered /></div>} />
+          <Route path='/movements' element={<Movements />} />
           <Route path='/' element={[<App3 />,<App4 />]} />
           
         </Routes>
