@@ -9,8 +9,8 @@ import CheckoutPage from "./components/CheckoutPage"
 import Navbar from './components/NavBar';
 import Products from './components/Products';
 import Movements from './components/Movements'
+import NewProducts from './components/newProducts'
 // import { Check } from '@material-ui/icons';
-import IngresarProductos from './components/IngresarProductos';
 
 import './styles.css'
 import './bootstrap.min.css'
@@ -25,7 +25,7 @@ import {
 //StateProvider encargado de permitir la intercomunicacion entre componentes 
 import { StateProvider } from './StateProvider';
 import reducer, { initialState } from './reducer';
-import IngresarProductos from './components/IngresarProductos';
+// import IngresarProductos from './components/IngresarProductos';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -39,6 +39,8 @@ root.render(
           <Route path='/checkout-page' element={<CheckoutPage />} />
           <Route path='/products' element={<div className='container-xxl'><Products /></div>} />
           <Route path='/movements' element={<Movements />} />
+          {/*<Route path='/ingress_products' element={<IngresarProductos />} />*/}
+          <Route path='/ingress_products' element={<NewProducts />} />
           <Route path='/' element={[<App3 />,<App4 />]} />
           
         </Routes>
